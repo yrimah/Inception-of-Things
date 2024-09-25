@@ -24,5 +24,8 @@ Vagrant.configure("2") do |config|
     # Folder Sync Settings #
     node.vm.synced_folder "./configs", "/home/vagrant/configs"
     node.vm.synced_folder "./scripts", "/home/vagrant/scripts"
+
+    # Provision Settings #
+    node.vm.provision "shell", path: "./scripts/install-k3s.sh"
   end
 end
