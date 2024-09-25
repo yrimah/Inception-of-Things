@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/yassine/iot/p2","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/home/vagrant/configs":{"guestpath":"/home/vagrant/configs","hostpath":"/home/yassine/iot/p2/configs","disabled":false,"__vagrantfile":true},"/home/vagrant/scripts":{"guestpath":"/home/vagrant/scripts","hostpath":"/home/yassine/iot/p2/scripts","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/yassine/iot/p2","disabled":false,"__vagrantfile":true}}}
