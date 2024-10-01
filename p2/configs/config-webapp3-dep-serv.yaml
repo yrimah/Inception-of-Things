@@ -1,0 +1,57 @@
+apiVersion: apps/v1   
+kind: Deployment    
+metadata:            
+  name: webapp3-deployment    
+  labels:        
+    app: webapp3   
+spec:            
+  replicas: 1    
+  selector:       
+    matchLabels: 
+      app: webapp3
+  template:        
+    metadata:
+      labels:    
+        app: webapp3
+    spec:        
+      containers:    
+      - name: webapp3
+        image: yrimah/webapp3:v1.0    
+        ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp3-service
+spec:
+  selector:
+    app: webapp3
+  # type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      # nodePort: 30003
+---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: webapp3-ingress
+# spec:
+#   rules:
+#     - host: app3.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: webapp3-service
+#                 port:
+#                   number: 80
+#   defaultBackend:
+#     service:
+#       name: webapp3-service
+#       port:
+#         number: 80

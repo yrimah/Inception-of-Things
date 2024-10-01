@@ -1,6 +1,0 @@
-apiVersion: 1
-kind: service
-metadata:
-  name: App2
-specs:
-  replicas: 3
