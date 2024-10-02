@@ -33,20 +33,3 @@ spec:
       port: 80
       targetPort: 80
       # nodePort: 30002
----
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: webapp2-ingress
-# spec:
-#   rules:
-#     - host: app2.com
-#       http:
-#         paths:
-#           - path: /
-#             pathType: Prefix
-#             backend:
-#               service:
-#                 name: webapp2-service
-#                 port:
-#                   number: 80
