@@ -4,6 +4,9 @@ all:
 down:
 	vagrant halt
 
+status:
+	vagrant status
+
 # up:
 # 	vagrant up
 

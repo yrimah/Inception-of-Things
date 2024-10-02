@@ -16,7 +16,7 @@ spec:
     spec:        
       containers:    
       - name: webapp3
-        image: yrimah/webapp3:v1.0    
+        image: yrimah/webapp3
         ports:
           - containerPort: 80
 ---
