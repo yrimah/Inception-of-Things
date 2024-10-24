@@ -1,5 +1,5 @@
-Inception-Of-Things
-Overview
+# Inception-Of-Things
+## Overview
 
 Inception-Of-Things is a comprehensive project aimed at providing a hands-on experience with Kubernetes by breaking down the deployment and management of applications into three distinct parts. The project uses Vagrant and K3D to create development environments, focusing on cluster setup, application deployment, and continuous integration/continuous deployment (CI/CD) workflows.
 Table of Contents
@@ -13,14 +13,14 @@ Table of Contents
     Contributing
     License
 
-Project Structure
+## Project Structure
 
     Part 1: Set up a multi-node Kubernetes cluster using Vagrant.
     Part 2: Create a single-node Kubernetes cluster with Vagrant and deploy multiple web applications.
     Part 3: Deploy a K3D cluster with Argocd for CI/CD capabilities and manage application deployments.
     Bonus Part: Install GitLab using Helm for repository management and CI/CD workflows.
 
-Part 1: Multi-node Cluster with Vagrant
+# Part 1: Multi-node Cluster with Vagrant
 
 In this part, we set up a Kubernetes cluster using Vagrant with two virtual machines:
 
@@ -32,7 +32,7 @@ Key Features:
     Easy cluster setup using Vagrant.
     Virtualization of master and worker nodes for a realistic environment.
 
-Part 2: Single-node Cluster with Vagrant
+# Part 2: Single-node Cluster with Vagrant
 
 For this part, we will create a single-node Kubernetes cluster where both the master and worker roles reside on the same virtual machine.
 Key Features:
@@ -44,7 +44,7 @@ Key Features:
         Ingress for external accessibility
     Configuration of one web application to run three replicas, ensuring high availability and no downtime.
 
-Part 3: K3D Multi-node Cluster
+# Part 3: K3D Multi-node Cluster
 
 This section introduces K3D to create a lightweight Kubernetes cluster with one master and two worker nodes.
 Key Features:
@@ -52,7 +52,7 @@ Key Features:
     Dev Namespace: Applications are deployed in the development namespace.
     Argocd Namespace: Argocd is installed to manage application deployment and synchronization with a GitHub repository.
 
-Bonus Part: GitLab Installation
+# Bonus Part: GitLab Installation
 
 In this bonus section, GitLab is installed using Helm in a dedicated GitLab namespace within the same cluster set up in Part 3.
 Key Features:
