@@ -1,19 +1,19 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-
 Vagrant.configure("2") do |config|
 
   # Box Settings #
   config.vm.box = "debian/bookworm64"
+  config.vm.box_check_update = false
   config.vm.hostname = "yrimahS"
 
   # Provider Settings #
   config.vm.define "yrimahS" do |node|
     node.vm.provider "virtualbox" do |vb|
     
-      vb.memory = 8024
-      vb.cpus = 4
+      vb.memory = 2192
+      vb.cpus = 2
       vb.name = "yrimahS"
     end
 
