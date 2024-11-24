@@ -1,35 +1,26 @@
 #!/bin/bash 
 
-#installer helm
-echo "\033[0;32mInstaller helm\033[0;0m"
-curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-sudo apt-get install apt-transport-https --yes
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-sudo apt-get update
-sudo apt-get install helm
-sleep 2
-
-
-#Ajouter le Repo GitLab Helm
-echo "\033[0;32mAjouter le Repo GitLab Helm\033[0;0m" 
-helm repo add gitlab https://charts.gitlab.io/
-helm repo update
-sleep 2
-
-
-#Créer le namspace gitlab
-echo "\033[0;32mCréer le namspace gitlab\033[0;0m"
+# Créer le namespace gitlab
+echo "\033[0;32mCréer le namespace gitlab\033[0;0m"
 kubectl create namespace gitlab
-sleep 2 
 
-#Installer Gitlab
-helm install gitlab gitlab/gitlab --namespace gitlab --values ./bonus/confs/gitlab-local-values.yaml
-sleep 2
-echo "\033[0;32mAttendre que toutes les pods soient prêtes\033[0;0m"
-kubectl wait -n gitlab --for=condition=Ready pods --all
+# Installer Gitlab
+echo "\033[0;32mInstaller Gitlab\033[0;0m"
+helm install gitlab gitlab/gitlab \
+    --namespace gitlab \
+    --set global.hosts.domain=localhost \
+    --set global.hosts.https=false \
+    --set global.ingress.configureCertmanager=false \
+    --set gitlab-runner.gitlabUrl=gitlab-webservice-default.gitlab.svc.cluster.local \
+    --set gitlab-runner.install=false
+
+echo "\033[0;32mAttendre que tous les pods dans le namespace gitlab atteignent l'état Ready\033[0;0m"
+kubectl wait -n gitlab --for=condition=Ready pods --all --timeout=120s
 kubectl get pods -n gitlab
-sleep 2
-
 
 echo "\033[0;32mObtenir le mot de passe initial\033[0;0m"
-kubectl get secret -n gitlab gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo
+kubectl get secret -n gitlab gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode > gitlab.pass
+
+# Gestion du port-forwarding
+echo "\033[0;32mDémarrage du port-forwarding\033[0;0m"
+kubectl port-forward service/gitlab-webservice-default -n gitlab 8443:8181 --address='0.0.0.0' &
