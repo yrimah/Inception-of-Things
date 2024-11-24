@@ -5,8 +5,8 @@ Inception-Of-Things is a comprehensive project aimed at providing a hands-on exp
 Table of Contents
 
     Project Structure
-    Part 1: Multi-node Cluster with Vagrant
-    Part 2: Single-node Cluster with Vagrant
+    Part 1: Multi-node k3s Cluster with Vagrant
+    Part 2: Single-node k3s Cluster with Vagrant
     Part 3: K3D Multi-node Cluster
     Bonus Part: GitLab Installation
     Getting Started
@@ -15,14 +15,14 @@ Table of Contents
 
 ## Project Structure
 
-    Part 1: Set up a multi-node Kubernetes cluster using Vagrant.
-    Part 2: Create a single-node Kubernetes cluster with Vagrant and deploy multiple web applications.
+    Part 1: Set up a multi-node k3s cluster using Vagrant.
+    Part 2: Create a single-node k3s cluster with Vagrant and deploy multiple web applications.
     Part 3: Deploy a K3D cluster with Argocd for CI/CD capabilities and manage application deployments.
     Bonus Part: Install GitLab using Helm for repository management and CI/CD workflows.
 
-# Part 1: Multi-node Cluster with Vagrant
+# Part 1: Multi-node k3s Cluster with Vagrant
 
-In this part, we set up a Kubernetes cluster using Vagrant with two virtual machines:
+In this part, we set up a k3s cluster using Vagrant with two virtual machines:
 
     Master/Server Node: Controls the cluster and manages the workloads.
     Worker Node: Executes the workloads assigned by the master node.
@@ -32,7 +32,7 @@ Key Features:
     Easy cluster setup using Vagrant.
     Virtualization of master and worker nodes for a realistic environment.
 
-# Part 2: Single-node Cluster with Vagrant
+# Part 2: Single-node k3s Cluster with Vagrant
 
 For this part, we will create a single-node Kubernetes cluster where both the master and worker roles reside on the same virtual machine.
 Key Features:
