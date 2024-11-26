@@ -1,4 +1,5 @@
 # Inception-Of-Things
+![IMG-20241125-WA0005](https://github.com/user-attachments/assets/2f1bb81e-36c9-4b2f-9b3d-d488d422e09c)
 ## Overview
 
 Inception-Of-Things is a comprehensive project aimed at providing a hands-on experience with Kubernetes by breaking down the deployment and management of applications into three distinct parts. The project uses Vagrant and K3D to create development environments, focusing on cluster setup, application deployment, and continuous integration/continuous deployment (CI/CD) workflows.
